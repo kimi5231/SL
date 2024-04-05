@@ -134,3 +134,88 @@ os.chdir(r'c:/')
 os.makedirs('myfolder')
 # 시스템 폴더에는 생성할 수 없음.
 os.makedirs('Windows/myfolder')
+
+
+import os
+os.chdir(r'C:\Programming\SL\LEC08\test')
+# 지정된 폴더에 있는 정보를 출력.
+for root, subfolders, files in os.walk(r'.\Python'):
+    print('info'.center(40, '='))
+    print(f'{root=}')
+    print(f'{subfolders=}')
+    print(f'{files=}')
+
+os.chdir(r'C:\Programming\SL\LEC08\test\Python')
+import shutil
+# 파일 복사.
+shutil.copy('NEWS.txt', 'NEWS2.txt')
+# 폴더 복사.
+shutil.copytree('Doc', 'Doc2')
+# 파일 이름 변경.
+shutil.move('python3.dll', 'python4.dll')
+# 폴더 이름 변경.
+shutil.move('Doc2', 'Doc3')
+
+# 파일 삭제.
+os.unlink('NEWS2.txt')
+os.remove('NEWS.txt')
+# 폴더 삭제.
+# rmdir을 사용하면, 폴더를 삭제하기 위해선 안에 파일이 없어야 함.
+os.rmdir('tcl')
+# rmtree를 사용하면, 내부 파일 유무와 상관없이 삭제할 수 있음.
+shutil.rmtree('tcl')
+
+os.chdir(r'C:\Programming\SL\LEC08\test\Python')
+import send2trash
+# 휴지통으로 보내기.
+send2trash.send2trash('python.exe')
+
+os.chdir(r'C:\Programming\SL\LEC08\test\Python')
+import winshell
+# 휴지통으로 보내기.
+winshell.delete_file('python4.dll')
+# 휴지통에서 파일 복구하기.
+for item in winshell.recycle_bin():
+    item.undelete()
+# .exe 파일만 복구가 제대로 안됨.
+winshell.delete_file('pythonw.exe')
+winshell.delete_file('python311.dll')
+
+# 휴지통 파일 내용 확인.
+for item in winshell.recycle_bin():
+    print(item.real_filename(), item.original_filename(), item.attributes())
+
+import zipfile
+# .zip 파일 열기.
+zf = zipfile.ZipFile('include_test.zip')
+# .zip 파일 내용 보기.
+zf.namelist()
+# .zip 파일 내에 있는 파일 정보 확인.
+zf.getinfo('include/abstract.h')
+# 특정 파일 압축 해제.
+zf.extract('include/abstract.h')
+# .zip 파일 생성.
+zf = zipfile.ZipFile('new.zip', 'w')
+# .zip 파일에 파일 추가.
+zf.write('python4.dll', compress_type=zipfile.ZIP_DEFLATED)
+# .zip 파일 닫기.
+zf.close()
+# 기존 .zip 파일 열기.
+zf = zipfile.ZipFile('new.zip', 'a')
+# .zip 파일에 파일 추가.
+zf.write('python311.dll')
+zf.close()
+
+# 리스트 정렬.
+a = [1,2,3,4]
+a.sort()
+# 딕셔너리 정렬.
+import random
+a = {random.randint(1, 100):'TEST' for _ in range(10)}
+sorted(a)
+# 딕셔너리 정렬 시, 람다를 이용해 정렬 기준을 설정 후 정렬.
+data = {'jisu':165, 'momo':167, 'iu':160}
+# 오름차순.
+sorted(data.items(), key=lambda x:x[1])
+# 내림차순.
+sorted(data.items(), key=lambda x:x[1], reverse=True)
