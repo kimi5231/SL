@@ -67,26 +67,26 @@ red_card = Image.new('RGBA', (200, 200), 'red')
 # cat_img.getpixel((120, 120))
 # cat_img.putpixel((100,102), ImageColor.getcolor('red', 'RGBA'))
 
-# im = Image.new('RGBA', (200,200), 'white')
-# draw = ImageDraw.Draw(im)
-# draw.point([(0,0), (199,0), (199, 199), (0, 199), (0,0)], fill='black')
-# draw.line([(0,0), (199,0), (199, 199), (0, 199), (0,0)], fill='black')
-# draw.line([(0,0), (199,0), (199, 199), (0, 199), (0,0)], fill='black', width=5)
-#
-# draw.rectangle((20,30,60,60), fill='blue')
-# draw.rectangle((20,30,60,60), fill='blue', outline='red')
-# draw.ellipse((120,30,160,60), fill='red')
-# draw.polygon(((57, 87), (79, 62), (94, 85), (120, 90), (103, 113)), fill='brown')
-# for i in range(100, 200, 10):
-#     draw.line([(i, 0), (200, i-100)], fill='green')
-#
-# viewer.show_img1(im)
-
-im = Image.new('RGBA', (400, 400), 'white')
+im = Image.new('RGBA', (200,200), 'white')
 draw = ImageDraw.Draw(im)
-draw.text((20, 150), 'Hello', fill='purple')
-arialFont = ImageFont.truetype(r'C:\Windows\Fonts\arial.ttf', 32)
-#nanumFont = ImageFont.truetype(r'C:\Windows\Fonts\NanumGothic.ttf', 32)
-draw.text((100, 150), 'Howdy', fill='gray', font=arialFont)
-#draw.text((100, 150), 'Hello', fill='red', font=nanumFont)
+draw.point([(0,0), (199,0), (199, 199), (0, 199), (0,0)], fill='black')
+draw.line([(0,0), (199,0), (199, 199), (0, 199), (0,0)], fill='black')
+draw.line([(0,0), (199,0), (199, 199), (0, 199), (0,0)], fill='black', width=5)
+
+draw.rectangle((20,30,60,60), fill='blue')
+draw.rectangle((20,30,60,60), fill='blue', outline='red')
+draw.ellipse((120,30,160,60), fill='red')
+draw.polygon(((57, 87), (79, 62), (94, 85), (120, 90), (103, 113)), fill='brown')
+for i in range(100, 200, 10):
+    draw.line([(i, 0), (200, i-100)], fill='green')
+
 viewer.show_img1(im)
+
+# im = Image.new('RGBA', (400, 400), 'white')
+# draw = ImageDraw.Draw(im)
+# draw.text((20, 150), 'Hello', fill='purple')
+# arialFont = ImageFont.truetype(r'C:\Windows\Fonts\arial.ttf', 32)
+# #nanumFont = ImageFont.truetype(r'C:\Windows\Fonts\NanumGothic.ttf', 32)
+# draw.text((100, 150), 'Howdy', fill='gray', font=arialFont)
+# #draw.text((100, 150), 'Hello', fill='red', font=nanumFont)
+# viewer.show_img1(im)
