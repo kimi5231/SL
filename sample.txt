@@ -1,2 +1,0 @@
-This is Python
-I Love Python
